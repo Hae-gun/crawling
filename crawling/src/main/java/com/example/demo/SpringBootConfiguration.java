@@ -1,14 +1,17 @@
 package com.example.demo;
 
+import org.apache.catalina.core.ApplicationContext;
 import org.python.util.PythonInterpreter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import com.example.vo.TestVo;
 
 @Configuration
 @ComponentScan(basePackages = "com.example")
+@PropertySource("classpath:/application.properties")
 public class SpringBootConfiguration {
 	
 	@Bean
