@@ -16,17 +16,19 @@ import com.example.service.PythonModule;
 import com.example.vo.TestVo;
 
 @RestController
-public class MainController {
+public class PythonController {
 	
 	@Autowired
 	ApplicationContext context;
 	
 	private final TestVo testVo;
 	private final PythonModule pyModule;
-	public MainController(PythonInterpreter intPre,TestVo testVo,PythonModule pyModule) {
+	
+	public PythonController(PythonInterpreter intPre,TestVo testVo,PythonModule pyModule) {
 		this.testVo=testVo;
 		this.pyModule = pyModule;
 	}
+	
 	@GetMapping("/test")
 	public Map<String, String> test() {
 		Environment enviroment = context.getEnvironment();
