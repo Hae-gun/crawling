@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+import com.example.service.PythonModule;
 import com.example.vo.TestVo;
 
 @Configuration
@@ -22,5 +23,10 @@ public class SpringBootConfiguration {
 	@Bean
 	public TestVo testVo() {
 		return new TestVo();
+	}
+	
+	@Bean
+	public PythonModule pythonModule() {
+		return new PythonModule(pythonInterpreter());
 	}
 }
