@@ -11,11 +11,6 @@ public class PythonModule {
 		this.intPre = intPre;
 	}
 	public void getCrawlingData(String url) {
-		ClassPathResource resource = new ClassPathResource("python/crawlingScript.py");
-		System.out.println(resource.getPath());
-		intPre.execfile(resource.getPath());
-		intPre.exec("crawling('"+url+"')");
 		System.out.println("COUNT UP" + count++);
-//		return 
 	}
 }
