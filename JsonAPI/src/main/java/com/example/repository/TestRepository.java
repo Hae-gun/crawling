@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.example.vo.TestVo;
 
 public interface TestRepository extends JpaRepository<TestVo, Integer>{
-	
 }

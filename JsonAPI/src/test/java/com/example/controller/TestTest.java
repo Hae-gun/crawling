@@ -3,21 +3,23 @@ package com.example.controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.repository.TestRepository;
 import com.example.vo.TestVo;
 
+@RunWith(SpringRunner.class)
 class TestTest {
-
-	private final TestRepository repository;
-	public TestTest(TestRepository repository) {
-		this.repository = repository;
-	}
+	@Autowired
+	private TestRepository testRepository;
 	
 	@Test
 	void test() {
-		repository.save(new TestVo("_name","_url"));
-		assertEquals(repository.findById(0).get().getName(),"_name");
+		System.out.println(testRepository);
+		testRepository.save(new TestVo("_name","_url"));
+		assertEquals(testRepository.findById(0).get().getName(),"_name");
 	}
 	@Test
 	void test2() {

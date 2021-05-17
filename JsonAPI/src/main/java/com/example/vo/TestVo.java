@@ -1,5 +1,6 @@
 package com.example.vo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,7 +10,9 @@ public class TestVo {
 
 	@Id
 	private int id;
+	@Column
 	private String name;
+	@Column
 	private String url;
 	
 	public TestVo() {
