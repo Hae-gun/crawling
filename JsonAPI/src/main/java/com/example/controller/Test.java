@@ -49,26 +49,31 @@ public class Test {
 	
 	@GetMapping("/accounts")
 	public List<Account> getAll(){
+		System.out.println("get All Account");
 		return jdbcService.getAllEmail();
 	}
 	
 	@GetMapping("/account/{id}")
 	public Account findById(@PathVariable Long id){
+		System.out.println("find ID:"+ id + " value");
 		return jdbcService.findById(id);
 	}
 	
 	@PostMapping("/enroll")
 	public Long saveMember(Account account) {
+		System.out.println("Enroll "+account);
 		return jdbcService.saveMember(account);
 	}
 	
 	@GetMapping("/delete/{id}")
 	public int deleteById(@PathVariable Long id) {
+		System.out.println("delete "+id+" value");
 		return jdbcService.deleteById(id);
 	}
 	
 	@GetMapping("/emails")
 	public List<String> getAllEmails(){
+		System.out.println("Enter get Emails");
 		return jdbcService.getEmailsOnlyId();
 	}
 }

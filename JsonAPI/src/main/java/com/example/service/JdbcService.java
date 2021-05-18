@@ -30,7 +30,7 @@ public class JdbcService {
 		List<String> result = new ArrayList<>();
 		for(Account act:list) {
 			result.add(act.getEmail());
-		}
+		} 
 		return result;
 	}
 	
