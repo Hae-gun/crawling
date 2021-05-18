@@ -3,7 +3,9 @@ package com.example.controller;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,9 +13,13 @@ import org.json.simple.parser.ParseException;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.repository.JdbcAccountRepository;
+import com.example.service.JdbcService;
+import com.example.vo.Account;
 import com.example.vo.TestVo;
 
 @RestController
@@ -21,9 +27,11 @@ import com.example.vo.TestVo;
 public class Test {
 	
 	private final TestVo testVo;
+	private final JdbcService jdbcService; 
 	
-	public Test(TestVo testVo) {
+	public Test(TestVo testVo,JdbcService jdbcService) {
 		this.testVo = testVo;
+		this.jdbcService = jdbcService;
 	}
 	
 	@GetMapping("/json")
@@ -40,4 +48,13 @@ public class Test {
 		System.out.println(list);
 	}
 	
+	@GetMapping("/accounts")
+	public List<Account> getAll(){
+		return jdbcService.getAllEmail();
+	}
+	
+	@GetMapping("/account/{id}")
+	public Account findById(@PathVariable Long id){
+		return jdbcService.findById(id);
+	}
 }
