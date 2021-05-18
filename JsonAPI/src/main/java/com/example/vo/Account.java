@@ -5,6 +5,10 @@ public class Account {
 	private long id;
 	private String email;
 	
+	public Account() {
+		
+	}
+
 	public long getId() {
 		return id;
 	}

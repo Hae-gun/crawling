@@ -12,7 +12,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import com.example.vo.Account;
-public class JdbcAccountRepository implements AccountRepository{
+public class JdbcAccountRepository implements JdbcRepository{
 	
 	private final JdbcTemplate jdbcTemplate;
 	public JdbcAccountRepository(JdbcTemplate jdbcTemplate) {
@@ -26,23 +26,23 @@ public class JdbcAccountRepository implements AccountRepository{
 	}
 
 	@Override
-	public long save(Account account) {
+	public <T> long save(T account) {
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		
 		jdbcTemplate.update(connection -> {
 			PreparedStatement ps = connection.prepareStatement("insert into accounts (email) values (?)", Statement.RETURN_GENERATED_KEYS);
-			ps.setString(1, account.getEmail());
+			ps.setString(1, ((Account)account).getEmail());
 			return ps;
         }, keyHolder);
-		return (long)keyHolder.getKey();
+		return keyHolder.getKey().longValue();
 	}
 
 
 	@Override
-	public int update(Account account) {
+	public <T> int update(T account) {
 		return jdbcTemplate.update("update accounts set email = ? where id = ?", 
-				account.getEmail(),
-				account.getId());
+				((Account)account).getEmail(),
+				((Account)account).getId());
 	}
 
 	@Override

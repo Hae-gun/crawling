@@ -14,6 +14,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,27 +27,25 @@ import com.example.vo.TestVo;
 @RequestMapping("/test")
 public class Test {
 	
-	private final TestVo testVo;
 	private final JdbcService jdbcService; 
 	
-	public Test(TestVo testVo,JdbcService jdbcService) {
-		this.testVo = testVo;
+	public Test(JdbcService jdbcService) {
 		this.jdbcService = jdbcService;
 	}
 	
-	@GetMapping("/json")
-	public void json() throws IOException, ParseException {
-		ClassPathResource cpr = new ClassPathResource("/json/result.json");
-		byte[] bdata = FileCopyUtils.copyToByteArray(cpr.getInputStream());
-		String jsonTxt = new String(bdata,StandardCharsets.UTF_8);
-		JSONParser parser = new JSONParser();
-		JSONObject jObj = (JSONObject) parser.parse(jsonTxt);
-		List<TestVo> list = new ArrayList<>();
-		for(Object key: jObj.keySet()) {
-			list.add(new TestVo(key.toString(),jObj.get(key).toString()));
-		}
-		System.out.println(list);
-	}
+//	@GetMapping("/json")
+//	public void json() throws IOException, ParseException {
+//		ClassPathResource cpr = new ClassPathResource("/json/result.json");
+//		byte[] bdata = FileCopyUtils.copyToByteArray(cpr.getInputStream());
+//		String jsonTxt = new String(bdata,StandardCharsets.UTF_8);
+//		JSONParser parser = new JSONParser();
+//		JSONObject jObj = (JSONObject) parser.parse(jsonTxt);
+//		List<TestVo> list = new ArrayList<>();
+//		for(Object key: jObj.keySet()) {
+//			list.add(new TestVo(key.toString(),jObj.get(key).toString()));
+//		}
+//		System.out.println(list);
+//	}
 	
 	@GetMapping("/accounts")
 	public List<Account> getAll(){
@@ -56,5 +55,20 @@ public class Test {
 	@GetMapping("/account/{id}")
 	public Account findById(@PathVariable Long id){
 		return jdbcService.findById(id);
+	}
+	
+	@PostMapping("/enroll")
+	public Long saveMember(Account account) {
+		return jdbcService.saveMember(account);
+	}
+	
+	@GetMapping("/delete/{id}")
+	public int deleteById(@PathVariable Long id) {
+		return jdbcService.deleteById(id);
+	}
+	
+	@GetMapping("/emails")
+	public List<String> getAllEmails(){
+		return jdbcService.getEmailsOnlyId();
 	}
 }
