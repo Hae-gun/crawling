@@ -14,7 +14,10 @@ public class JpaServices {
 	public JpaServices(TestRepository testRepository) {
 		this.testRepository = testRepository;
 	}
-	public List<TestVo> findAll() {
-		return testRepository.findAll();
+	public<T> List<T> findAll() {
+		return (List<T>) testRepository.findAll();
+	}
+	public TestVo insertOne(TestVo vo) {
+		return testRepository.save(vo);
 	}
 }

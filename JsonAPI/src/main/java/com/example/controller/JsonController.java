@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +23,15 @@ public class JsonController {
 //	
 	
 	@GetMapping("/test")
-	public TestVo addVo(TestVo vo) {
+	public List<TestVo> getAll(TestVo vo) {
 		System.out.println(jpaServices.findAll());
-		return vo;
+		return jpaServices.findAll();
 	}
 	
+	@PostMapping("/data")
+	public TestVo addVo(TestVo testVo) {
+		System.out.println(testVo);
+		return jpaServices.insertOne(testVo);
+	}
 //	@PostMapping("/datas")
 }
