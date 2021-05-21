@@ -28,7 +28,5 @@ public class BojVo {
 	private String level;
 	private String name;
 	private String url;
-//	private String category;
-//	@OneToMany
-//	private Category category;
+
 }
