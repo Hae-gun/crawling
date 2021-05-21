@@ -14,13 +14,8 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 
-@Data
 @Entity
 @Table(name="probTable")
-@ToString
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class BojVo {
 	@Id
 	@NonNull
@@ -28,5 +23,44 @@ public class BojVo {
 	private String level;
 	private String name;
 	private String url;
-
+	
+	public BojVo() {
+		
+	}
+	public BojVo(@NonNull String id, String level, String name, String url) {
+		this.id = id;
+		this.level = level;
+		this.name = name;
+		this.url = url;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getLevel() {
+		return level;
+	}
+	public void setLevel(String level) {
+		this.level = level;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	@Override
+	public String toString() {
+		return "BojVo [id=" + id + ", level=" + level + ", name=" + name + ", url=" + url + "]";
+	}
+	
+	
 }
