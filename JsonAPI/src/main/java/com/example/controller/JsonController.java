@@ -51,12 +51,16 @@ public class JsonController {
 		return bojService.saveTierData(tier);
 	}
 	@GetMapping("/probArrs/{tier}")
-	public List<BojVo> readTierData(@PathVariable String tier) throws FileNotFoundException, IOException, ParseException {
-		return bojService.readByTier(tier);
+	public List<BojVo> searchTierData(@PathVariable String tier) throws FileNotFoundException, IOException, ParseException {
+		return bojService.searchByTier(tier);
 	}
 	@GetMapping("/probArrs")
-	public List<BojVo> readAllData() throws FileNotFoundException, IOException, ParseException {
-		return bojService.readAll();
+	public List<BojVo> searchAllData() throws FileNotFoundException, IOException, ParseException {
+		return bojService.searchAll();
+	}
+	@GetMapping("/prob/{name}")
+	public List<BojVo> searchByName(@PathVariable String name){
+		return bojService.searchByName(name);
 	}
 	
 }
