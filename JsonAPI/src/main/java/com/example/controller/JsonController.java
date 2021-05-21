@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.service.BojService;
 import com.example.service.JpaServices;
+import com.example.vo.BojVo;
 import com.example.vo.TestVo;
 
 @RestController
@@ -45,8 +46,17 @@ public class JsonController {
 	public JSONObject testBoj(@PathVariable String tier) throws FileNotFoundException, IOException, ParseException {
 		return bojService.getJsonData(tier);
 	}
-	@GetMapping("/probArrs/{tier}")
-	public JSONObject testBojArr(@PathVariable String tier) throws FileNotFoundException, IOException, ParseException {
+	@PostMapping("/probArrs/{tier}")
+	public JSONObject saveJsonData(@PathVariable String tier) throws FileNotFoundException, IOException, ParseException {
 		return bojService.saveTierData(tier);
 	}
+	@GetMapping("/probArrs/{tier}")
+	public List<BojVo> readTierData(@PathVariable String tier) throws FileNotFoundException, IOException, ParseException {
+		return bojService.readByTier(tier);
+	}
+	@GetMapping("/probArrs")
+	public List<BojVo> readAllData() throws FileNotFoundException, IOException, ParseException {
+		return bojService.readAll();
+	}
+	
 }
