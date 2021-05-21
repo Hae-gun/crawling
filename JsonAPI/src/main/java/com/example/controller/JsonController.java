@@ -4,8 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
+import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +17,7 @@ import com.example.service.JpaServices;
 import com.example.vo.TestVo;
 
 @RestController
-@RequestMapping("/json")
+@RequestMapping("/boj")
 public class JsonController {
 	
 
@@ -39,8 +41,12 @@ public class JsonController {
 		System.out.println(testVo);
 		return jpaServices.insertOne(testVo);
 	}
-	@GetMapping("/test2")
-	public void testBoj() throws FileNotFoundException, IOException, ParseException {
-		System.out.println(bojService.getJsonData());
+	@GetMapping("/probs/{tier}")
+	public JSONObject testBoj(@PathVariable String tier) throws FileNotFoundException, IOException, ParseException {
+		return bojService.getJsonData(tier);
+	}
+	@GetMapping("/probArrs/{tier}")
+	public JSONObject testBojArr(@PathVariable String tier) throws FileNotFoundException, IOException, ParseException {
+		return bojService.saveTierData(tier);
 	}
 }

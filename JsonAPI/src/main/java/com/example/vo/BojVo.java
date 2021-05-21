@@ -24,12 +24,11 @@ import lombok.ToString;
 public class BojVo {
 	@Id
 	@NonNull
-	private Long id;
-	private String porbName;
-	@Getter
-	@Setter
+	private String id;
+	private String level;
+	private String name;
 	private String url;
-	private String category;
+//	private String category;
 //	@OneToMany
 //	private Category category;
 }

@@ -5,8 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -15,7 +17,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import com.example.repository.BojRepository;
-import com.example.vo.BojVo;
 
 @Service
 public class BojService {
@@ -27,12 +28,28 @@ public class BojService {
 		this.repository = repository;
 	}
 	
-	public List<List<BojVo>> getJsonData() throws FileNotFoundException, IOException, ParseException{
-		ClassPathResource resource = new ClassPathResource("json/result.json");
+	public JSONObject readJsonFile(String tier) throws FileNotFoundException, IOException, ParseException {
+		String selectTier = tier.toLowerCase();
+		ClassPathResource resource = new ClassPathResource("python/tier_"+selectTier+".json");
 		Path path = Paths.get(resource.getURI());
-		Object obj = parser.parse(new FileReader(path.toString()));
-		JSONObject jobj = (JSONObject)obj;
-		System.out.println(jobj);
-		return null;
+		return (JSONObject)parser.parse(new FileReader(path.toString()));
 	}
+	
+	
+	public JSONObject getJsonData(String tier) throws FileNotFoundException, IOException, ParseException{
+		
+		JSONObject jobj = readJsonFile(tier);
+		JSONObject prob = (JSONObject) jobj.get("list");
+		return prob;
+	}
+	public JSONObject saveTierData(String tier) throws FileNotFoundException, IOException, ParseException {
+		JSONObject data = getJsonData(tier);
+		String[] levels = {"0","1","2","3","4"};
+		for(String lv:levels) {
+			JSONArray jarr = (JSONArray)data.get(lv);
+			System.out.println(lv+" __ " + jarr);
+		}
+		return data;
+	}
+	
 }
