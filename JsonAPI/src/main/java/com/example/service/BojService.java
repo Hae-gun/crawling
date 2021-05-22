@@ -80,4 +80,12 @@ public class BojService {
 		String search = "%"+name.toLowerCase()+"%";
 		return ((BojRepository) repository).findByNameLike(search);
 	}
+
+	
+
+	public List<BojVo> randomProb(String tier, int i) {
+		String level = i != 0 ? tier+i:tier;
+		List allProb = searchByTier(level);
+		return allProb;
+	}
 }

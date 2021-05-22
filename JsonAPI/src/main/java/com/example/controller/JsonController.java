@@ -62,5 +62,12 @@ public class JsonController {
 	public List<BojVo> searchByName(@PathVariable String name){
 		return bojService.searchByName(name);
 	}
-	
+	@GetMapping("/random/{tier}")
+	public List<BojVo> getRandomProb(@PathVariable String tier){
+		return bojService.randomProb(tier,0);
+	}
+	@GetMapping("/random/{tier}/{level}")
+	public List<BojVo> getRandomProb(@PathVariable String tier,@PathVariable int level){
+		return bojService.randomProb(tier,level);
+	}
 }
