@@ -33,6 +33,7 @@ public class BojService {
 		String selectTier = tier.toLowerCase();
 		ClassPathResource resource = new ClassPathResource("/python/tier_" + selectTier + ".json");
 		Path path = Paths.get(resource.getURI());
+		System.out.println(">>>>"+path.toString());
 		return (JSONObject) parser.parse(new FileReader(path.toString()));
 	}
 
