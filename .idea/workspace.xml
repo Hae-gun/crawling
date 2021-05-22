@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="58bcf066-8116-4738-aaa5-15fd9d8f967a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/JsonAPI/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JsonAPI/src/main/java/com/example/controller/JsonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JsonAPI/src/main/java/com/example/controller/JsonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JsonAPI/src/main/java/com/example/service/BojService.java" beforeDir="false" afterPath="$PROJECT_DIR$/JsonAPI/src/main/java/com/example/service/BojService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="e22cd64d-918f-43e4-aa88-431a9d163b24" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1sYZnPLmE8PH6jIfkpK23guMxK6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs.protractor.protractor_package" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="/Users/choehyegeun/Downloads/crawling/JsonAPI/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/JsonAPI/build.gradle" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="" />
+      <option name="jdkPath" value="Default" />
+      <option name="language" value="" />
+      <option name="specificationPath" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle./Users/choehyegeun/Downloads/crawling/JsonAPI/build.gradle" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="58bcf066-8116-4738-aaa5-15fd9d8f967a" name="Default Changelist" comment="" />
+      <created>1621051649753</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621051649753</updated>
+      <workItem from="1621051650908" duration="300000" />
+      <workItem from="1621052322731" duration="905000" />
+      <workItem from="1621128862853" duration="1343000" />
+      <workItem from="1621254832462" duration="126000" />
+      <workItem from="1621256516877" duration="1688000" />
+      <workItem from="1621341291945" duration="7000" />
+      <workItem from="1621670726731" duration="19000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="208" y="23" width="1024" height="823" key="#Project_Structure" timestamp="1621128203504">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="208" y="23" key="#Project_Structure/0.23.1440.821@0.23.1440.821" timestamp="1621128203504" />
+    <state x="208" y="23" width="1024" height="823" key="#Project_Structure/0.23.1440.823@0.23.1440.823" timestamp="1621052397324" />
+    <state x="184" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621257221663">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="184" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.823@0.23.1440.823" timestamp="1621257221663" />
+    <state width="888" height="213" key="GridCell.Tab.0.bottom" timestamp="1621341227815">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="888" height="213" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1621341227815" />
+    <state width="888" height="213" key="GridCell.Tab.0.center" timestamp="1621341227814">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="888" height="213" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1621341227814" />
+    <state width="888" height="213" key="GridCell.Tab.0.left" timestamp="1621341227814">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="888" height="213" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1621341227814" />
+    <state width="888" height="213" key="GridCell.Tab.0.right" timestamp="1621341227815">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="888" height="213" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1621341227815" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1621256724208">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.23.1440.823@0.23.1440.823" timestamp="1621256724208" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -61,12 +61,12 @@ public class BojService {
 		return result;
 	}
 
-	public List<BojVo> readByTier(String tier) {
+	public List<BojVo> searchByTier(String tier) {
 		String search = "%" + tier.toLowerCase() + "%";
 		return ((BojRepository) repository).findByLevelLike(search);
 	}
 
-	public List<BojVo> readAll() {
+	public List<BojVo> searchAll() {
 		return repository.findAll();
 	}
 	
@@ -74,5 +74,18 @@ public class BojService {
 		result.put("code", "0000");
 		result.put("action", "saveTierData");
 		result.put("msg", "complete");
+	}
+
+	public List<BojVo> searchByName(String name) {
+		String search = "%"+name.toLowerCase()+"%";
+		return ((BojRepository) repository).findByNameLike(search);
+	}
+
+	
+
+	public List<BojVo> randomProb(String tier, int i) {
+		String level = i != 0 ? tier+i:tier;
+		List allProb = searchByTier(level);
+		return allProb;
 	}
 }
