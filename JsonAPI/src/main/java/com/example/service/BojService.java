@@ -4,7 +4,10 @@ import java.io.*;
 import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -90,6 +93,17 @@ public class BojService {
 	public List<BojVo> randomProb(String tier, int i) {
 		String level = i != 0 ? tier+i:tier;
 		List allProb = searchByTier(level);
-		return allProb;
+
+		Set<Integer> randomGet2 = new HashSet<>();
+
+		while(randomGet2.size()<2){
+			int index = (int)(Math.random()*allProb.size());
+			randomGet2.add(index);
+		}
+		List result2 = new ArrayList();
+		for(Integer index:randomGet2){
+			result2.add(allProb.get(index));
+		}
+		return result2;
 	}
 }
