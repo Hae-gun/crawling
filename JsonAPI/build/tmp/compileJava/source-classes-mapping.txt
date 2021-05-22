@@ -16,8 +16,8 @@ com/example/repository/JdbcAccountRepository.java
  com.example.repository.JdbcAccountRepository
 com/example/demo/SpringBootConfiguration.java
  com.example.demo.SpringBootConfiguration
-com/example/service/JdbcService.java
- com.example.service.JdbcService
+com/example/service/BojService.java
+ com.example.service.BojService
 com/example/demo/JsonApiApplication.java
  com.example.demo.JsonApiApplication
 com/example/vo/TestVo.java
@@ -28,7 +28,7 @@ com/example/vo/BojVo.java
  com.example.vo.BojVo
 com/example/demo/H2ServerConfig.java
  com.example.demo.H2ServerConfig
-com/example/service/BojService.java
- com.example.service.BojService
+com/example/service/JdbcService.java
+ com.example.service.JdbcService
 com/example/controller/JsonController.java
  com.example.controller.JsonController
