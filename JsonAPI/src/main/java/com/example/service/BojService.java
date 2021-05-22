@@ -1,8 +1,7 @@
 package com.example.service;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -30,11 +29,15 @@ public class BojService {
 	}
 
 	public JSONObject readJsonFile(String tier) throws FileNotFoundException, IOException, ParseException {
+		System.out.println("in ReadJsonFile");
 		String selectTier = tier.toLowerCase();
 		ClassPathResource resource = new ClassPathResource("/python/tier_" + selectTier + ".json");
-		Path path = Paths.get(resource.getURI());
-		System.out.println(">>>>"+path.toString());
-		return (JSONObject) parser.parse(new FileReader(path.toString()));
+		System.out.println(resource.getURI());
+		//Path path = Paths.get(resource.getURI());
+
+		String source = "/home/chlgprms/crawling/JsonAPI/build/resources/main/pythontier_" + selectTier + ".json";
+		File file = new File(source);
+		return (JSONObject) parser.parse(new FileReader(file));
 	}
 
 	public JSONObject getJsonData(String tier) throws FileNotFoundException, IOException, ParseException {
