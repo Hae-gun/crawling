@@ -31,7 +31,7 @@ public class BojService {
 
 	public JSONObject readJsonFile(String tier) throws FileNotFoundException, IOException, ParseException {
 		String selectTier = tier.toLowerCase();
-		ClassPathResource resource = new ClassPathResource("/home/chlgprms/crawling/JsonAPI/build/resources/main/python/tier_" + selectTier + ".json");
+		ClassPathResource resource = new ClassPathResource("/python/tier_" + selectTier + ".json");
 		Path path = Paths.get(resource.getURI());
 		return (JSONObject) parser.parse(new FileReader(path.toString()));
 	}
