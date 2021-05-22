@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.controller.TestTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-05-22T08:56:38" hostname="choehyegeuns-MacBook-Pro.local" time="0.004">
-  <properties/>
-  <testcase name="test()" classname="com.example.controller.TestTest" time="0.0"/>
-  <testcase name="test2()" classname="com.example.controller.TestTest" time="0.003"/>
-  <system-out><![CDATA[null
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
