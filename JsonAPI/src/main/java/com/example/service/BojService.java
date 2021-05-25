@@ -13,6 +13,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -36,7 +37,7 @@ public class BojService {
 		String selectTier = tier.toLowerCase();
 		ClassPathResource resource = new ClassPathResource("/python/tier_" + selectTier + ".json");
 		System.out.println(resource.getURI());
-		//Path path = Paths.get(resource.getURI());
+		// Path path = Paths.get(resource.getURI());
 
 		String source = "/home/chlgprms/crawling/JsonAPI/build/resources/main/python/tier_" + selectTier + ".json";
 		File file = new File(source);
@@ -59,8 +60,7 @@ public class BojService {
 			for (int i = 0; i < jarr.size(); i++) {
 				JSONObject obj = (JSONObject) jarr.get(i);
 				obj.put("level", tier + (5 - Integer.valueOf(lv)));
-				BojVo vo = new BojVo(obj.get("id").toString(), obj.get("level").toString(), obj.get("name").toString(),
-						obj.get("url").toString());
+				BojVo vo = makeVo(obj);
 				repository.save(vo);
 			}
 		}
@@ -68,6 +68,7 @@ public class BojService {
 		return result;
 	}
 
+//	@Caching
 	public List<BojVo> searchByTier(String tier) {
 		String search = "%" + tier.toLowerCase() + "%";
 		return ((BojRepository) repository).findByLevelLike(search);
@@ -76,7 +77,7 @@ public class BojService {
 	public List<BojVo> searchAll() {
 		return repository.findAll();
 	}
-	
+
 	private void makeResultMsg(JSONObject result) {
 		result.put("code", "0000");
 		result.put("action", "saveTierData");
@@ -84,26 +85,30 @@ public class BojService {
 	}
 
 	public List<BojVo> searchByName(String name) {
-		String search = "%"+name.toLowerCase()+"%";
+		String search = "%" + name.toLowerCase() + "%";
 		return ((BojRepository) repository).findByNameLike(search);
 	}
 
-	
-
 	public List<BojVo> randomProb(String tier, int i) {
-		String level = i != 0 ? tier+i:tier;
+		String level = i != 0 ? tier + i : tier;
 		List allProb = searchByTier(level);
 
 		Set<Integer> randomGet2 = new HashSet<>();
 
-		while(randomGet2.size()<2){
-			int index = (int)(Math.random()*allProb.size());
+		while (randomGet2.size() < 2) {
+			int index = (int) (Math.random() * allProb.size());
 			randomGet2.add(index);
 		}
 		List result2 = new ArrayList();
-		for(Integer index:randomGet2){
+		for (Integer index : randomGet2) {
 			result2.add(allProb.get(index));
 		}
 		return result2;
+	}
+
+	public BojVo makeVo(JSONObject obj) {
+
+		return new BojVo(obj.get("id").toString(), obj.get("level").toString(), obj.get("name").toString(),
+				obj.get("url").toString());
 	}
 }

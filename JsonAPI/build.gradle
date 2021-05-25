@@ -35,6 +35,7 @@ dependencies {
 	compile fileTree(dir: 'resources', include: ['**/*.json'])
 }
 
+
 test {
 	useJUnitPlatform()
 }
