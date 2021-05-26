@@ -1,9 +1,9 @@
 package com.example.service;
 
-import java.io.*;
-import java.net.URI;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -13,7 +13,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.cache.annotation.Caching;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -50,7 +49,7 @@ public class BojService {
 		JSONObject prob = (JSONObject) jobj.get("list");
 		return prob;
 	}
-
+	
 	public JSONObject saveTierData(String tier) throws FileNotFoundException, IOException, ParseException {
 		JSONObject data = getJsonData(tier);
 		String[] levels = { "0", "1", "2", "3", "4" };

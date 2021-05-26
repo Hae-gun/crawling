@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.List;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +19,15 @@ import com.example.vo.Account;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(classes = JsonApiApplication.class)
-class JdbcAccountRepositoryTest {
+class JdbcAccountRepositoryTest { //JUnit5 로 동작하고 있음.
 	@Autowired
 	private JdbcAccountRepository jdbcAccountRepository;
 	
 	String defaultEmail = "add@email.com";
 	
-	@Before
+	@BeforeEach //JUnit4 에서 @Before 과 같은 기능
 	public void setUp() {
+		System.out.println("Do setUp");
 		jdbcAccountRepository.deleteAll();		
 	}
 	
