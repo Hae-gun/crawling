@@ -1,6 +1,7 @@
 package com.security.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class UserService {
 	}
 
 	public List<User> getUsers() {
-		return repository.findAll();
+		return Optional.ofNullable(repository.findAll()).get() ;
 	}
 
 	public void reset() {
@@ -31,6 +32,11 @@ public class UserService {
 		}catch(Exception e) {
 			return false;
 		}
+	}
+	
+	public User getUser(String id) {
+		Optional<User> userResult = repository.findById(id);
+		return userResult.get(); 
 	}
 
 }
