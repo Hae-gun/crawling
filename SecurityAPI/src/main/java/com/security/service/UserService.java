@@ -9,16 +9,28 @@ import com.security.vo.User;
 
 @Service
 public class UserService {
-	
+
 	private final JpaRepository repository;
 
 	public UserService(JpaRepository repository) {
 		this.repository = repository;
 	}
-	
-	public List<User> getUsers(){
+
+	public List<User> getUsers() {
 		return repository.findAll();
 	}
-	
-	
+
+	public void reset() {
+		repository.deleteAll();
+	}
+
+	public boolean register(User user) {
+		try {
+			repository.save(user);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
+
 }

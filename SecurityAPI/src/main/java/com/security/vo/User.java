@@ -12,6 +12,10 @@ public class User {
 	private String pw;
 	private String name;
 	
+	
+	public User() {
+	}
+
 	public User(String id, String pw, String name) {
 		this.id = id;
 		this.pw = pw;
