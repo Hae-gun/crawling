@@ -7,7 +7,6 @@ plugins {
 group = 'com.security'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-
 repositories {
 	mavenCentral()
 }
@@ -20,6 +19,10 @@ dependencies {
 	//JUnit5
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+	implementation "org.springframework.boot:spring-boot-devtools"
+    implementation "org.springframework.boot:spring-boot-starter-logging"
+    implementation group: 'log4j', name: 'log4j', version: '1.2.17'
+	
 }
 
 test {
