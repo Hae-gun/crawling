@@ -10,7 +10,7 @@ import com.security.service.UserService;
 import com.security.vo.User;
 
 @RestController
-@RequestMapping("/app")
+@RequestMapping("/api")
 public class UserController {
 	
 	private final UserService service;
