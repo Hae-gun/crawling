@@ -44,19 +44,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		        .antMatchers(
 		                "/h2-console/**"
 		        ).permitAll()
-		    .anyRequest().authenticated()
-		    .and()
-            .csrf()
-                .ignoringAntMatchers("/h2-console/**")
-            .and()
-            .headers()
+		    .anyRequest().authenticated();
+		
+		
+		http.csrf()
+                .ignoringAntMatchers("/h2-console/**");
+		
+		
+		http.headers()
             .addHeaderWriter(
                 new XFrameOptionsHeaderWriter(
                     new WhiteListedAllowFromStrategy(Arrays.asList("localhost"))    // 여기!
                 )
             )
-            .frameOptions().sameOrigin()
-            .and().formLogin();
+            .frameOptions().sameOrigin();
+		
+		
+		http.formLogin();
 //				.antMatchers("/api/**").authenticated()
 //				.antMatchers("/**").permitAll()
 //				.antMatchers("/h2-console/**").permitAll();
