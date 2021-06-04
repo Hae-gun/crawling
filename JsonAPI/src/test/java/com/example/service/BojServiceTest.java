@@ -14,11 +14,11 @@ import com.example.vo.BojVo;
 @SpringBootTest
 public class BojServiceTest{
 	
-	@Autowired
-	private BojRepository repository;
-	
-	@Test
-	public void 가져오기() {
-		System.out.println(repository);
-	}
+//	@Autowired
+//	private BojRepository repository;
+//	
+//	@Test
+//	public void 가져오기() {
+//		System.out.println(repository);
+//	}
 }

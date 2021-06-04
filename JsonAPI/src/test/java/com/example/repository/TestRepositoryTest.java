@@ -22,16 +22,16 @@ import com.example.demo.JsonApiApplication;
 //@ExtendWith(MockitoExtension.class);
 public class TestRepositoryTest {
 	
-	@Autowired
-	BojRepository repository;
-	
-	
-	
-	@Test
-	public void load() {
-		List list = repository.findAll();
-		assertThat(list.size(),not(0));
-	}
-	
+//	@Autowired
+//	BojRepository repository;
+//	
+//	
+//	
+//	@Test
+//	public void load() {
+//		List list = repository.findAll();
+//		assertThat(list.size(),not(0));
+//	}
+//	
 	
 }

@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -36,10 +38,14 @@ public class BojService {
 		String selectTier = tier.toLowerCase();
 		ClassPathResource resource = new ClassPathResource("/python/tier_" + selectTier + ".json");
 		System.out.println(resource.getURI());
-		// Path path = Paths.get(resource.getURI());
-
-		String source = "/home/chlgprms/crawling/JsonAPI/build/resources/main/python/tier_" + selectTier + ".json";
-		File file = new File(source);
+		 Path path = Paths.get(resource.getURI());
+//		String path = "/home/chlgprms/crawling/JsonAPI/build/resources/main/python/tier_"; 
+		
+//		String path = "./src/main/resources/tier_";
+//		String path = "/json/tier_";
+//		String source = path + selectTier + ".json";
+//		File file = new File(source);
+		File file = new File(path.toString());
 		return (JSONObject) parser.parse(new FileReader(file));
 	}
 
