@@ -57,7 +57,7 @@ for tier in range(1,31):
     prob['tier']=tier
     prob['list']=result
     probList.append(prob)
-    if tier%5==0:
+    if tier%5==0: # 등급마다 5단위로 나뉨 (브론즈 1~5, 실버6~10,... ,루비 26~30)
         df = pd.DataFrame(probList)
         fileName='tier_'+tierName[tier//5]+'.json'
         with open(fileName, 'w', encoding='utf-8') as file:
