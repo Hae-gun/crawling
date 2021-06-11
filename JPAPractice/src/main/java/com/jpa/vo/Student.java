@@ -1,5 +1,8 @@
 package com.jpa.vo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,14 +26,19 @@ public class Student {
 //	@JoinColumn(name="school_id")
 	private School school;
 	
+	@OneToMany(mappedBy = "student")
+	private List<StudentClass> studentClasses = new ArrayList<StudentClass>();
 	
 	public Student() {
 	}
-	public Student(Long id, String name, School school) {
+	
+	public Student(Long id, String name, School school, List<StudentClass> studentClasses) {
 		this.id = id;
 		this.name = name;
 		this.school = school;
+		this.studentClasses = studentClasses;
 	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -48,6 +57,17 @@ public class Student {
 	public void setSchool(School school) {
 		this.school = school;
 	}
+	
+	
+	
+	public List<StudentClass> getStudentClasses() {
+		return studentClasses;
+	}
+
+	public void setStudentClasses(List<StudentClass> studentClasses) {
+		this.studentClasses = studentClasses;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", school=" + school + "]";
